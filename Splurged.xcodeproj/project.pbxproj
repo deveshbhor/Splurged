@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3547354122D913170034DA26 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3547354022D913170034DA26 /* FoodTableViewController.swift */; };
+		35CE7CE822DBD9DB00374C14 /* EntertainmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CE722DBD9DA00374C14 /* EntertainmentTableViewController.swift */; };
+		35CE7CEA22DBDB7200374C14 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CE922DBDB7200374C14 /* ShoppingTableViewController.swift */; };
 		AEEC469A22D90EC40081B0FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC469922D90EC40081B0FF /* AppDelegate.swift */; };
 		AEEC469C22D90EC40081B0FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC469B22D90EC40081B0FF /* ViewController.swift */; };
 		AEEC469F22D90EC40081B0FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEEC469D22D90EC40081B0FF /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3547354022D913170034DA26 /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
+		35CE7CE722DBD9DA00374C14 /* EntertainmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentTableViewController.swift; sourceTree = "<group>"; };
+		35CE7CE922DBDB7200374C14 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		AEEC469622D90EC40081B0FF /* Splurged.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splurged.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEC469922D90EC40081B0FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEEC469B22D90EC40081B0FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +62,10 @@
 			children = (
 				AEEC469922D90EC40081B0FF /* AppDelegate.swift */,
 				AEEC469B22D90EC40081B0FF /* ViewController.swift */,
+				3547354022D913170034DA26 /* FoodTableViewController.swift */,
+				35CE7CE722DBD9DA00374C14 /* EntertainmentTableViewController.swift */,
 				AEEC469D22D90EC40081B0FF /* Main.storyboard */,
+				35CE7CE922DBDB7200374C14 /* ShoppingTableViewController.swift */,
 				AEEC46A022D90EC60081B0FF /* Assets.xcassets */,
 				AEEC46A222D90EC60081B0FF /* LaunchScreen.storyboard */,
 				AEEC46A522D90EC60081B0FF /* Info.plist */,
@@ -136,6 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEC469C22D90EC40081B0FF /* ViewController.swift in Sources */,
+				3547354122D913170034DA26 /* FoodTableViewController.swift in Sources */,
+				35CE7CE822DBD9DB00374C14 /* EntertainmentTableViewController.swift in Sources */,
+				35CE7CEA22DBDB7200374C14 /* ShoppingTableViewController.swift in Sources */,
 				AEEC469A22D90EC40081B0FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
