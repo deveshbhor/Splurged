@@ -109,6 +109,12 @@ class entertainmentMapViewController: UIViewController, CLLocationManagerDelegat
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? EntertainmentDetailsViewController {
+            destination.selectedMapItem = selectedMapItem
+        }
+    }
+    
     
     
 }
