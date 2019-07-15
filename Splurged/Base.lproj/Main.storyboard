@@ -75,6 +75,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0g3-Ma-f1k" kind="show" id="3Ku-hQ-s3x"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -87,20 +90,29 @@
             </objects>
             <point key="canvasLocation" x="512" y="-534"/>
         </scene>
-        <!--View Controller-->
+        <!--Food Map View Controller-->
         <scene sceneID="FWe-X2-ady">
             <objects>
-                <viewController id="0g3-Ma-f1k" sceneMemberID="viewController">
+                <viewController id="0g3-Ma-f1k" customClass="foodMapViewController" customModule="Splurged" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FC-py-IN2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0Ot-CR-7Bb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Atb-M4-nHD"/>
                     </view>
+                    <connections>
+                        <outlet property="foodMap" destination="0Ot-CR-7Bb" id="UCB-gU-rcG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epg-g4-YGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-534"/>
+            <point key="canvasLocation" x="1376.8115942028987" y="-534.375"/>
         </scene>
         <!--Shopping Table View Controller-->
         <scene sceneID="5vx-ea-tcp">
@@ -118,6 +130,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="k1L-mI-rEe" kind="show" id="EvY-Ey-pi1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -146,6 +161,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kz6-5G-OLS" kind="show" id="6jI-Oy-Efs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -158,31 +176,49 @@
             </objects>
             <point key="canvasLocation" x="512" y="762"/>
         </scene>
-        <!--View Controller-->
+        <!--Entertainment Map View Controller-->
         <scene sceneID="rHz-Eo-eKS">
             <objects>
-                <viewController id="kz6-5G-OLS" sceneMemberID="viewController">
+                <viewController id="kz6-5G-OLS" customClass="entertainmentMapViewController" customModule="Splurged" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1S-M8-qPK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IdX-bg-crk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4nT-I2-hzB"/>
                     </view>
+                    <connections>
+                        <outlet property="entertainmentMap" destination="IdX-bg-crk" id="XIa-MR-2HO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tiy-7z-nYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="761"/>
+            <point key="canvasLocation" x="1285.5072463768117" y="760.71428571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Clothes Map View Controller-->
         <scene sceneID="Krh-z4-fBz">
             <objects>
-                <viewController id="k1L-mI-rEe" sceneMemberID="viewController">
+                <viewController id="k1L-mI-rEe" customClass="clothesMapViewController" customModule="Splurged" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zQ5-aZ-b1f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YWc-bI-ZbX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hvt-55-3CN"/>
                     </view>
+                    <connections>
+                        <outlet property="clothesMap" destination="YWc-bI-ZbX" id="hma-G4-zic"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PuY-0R-GWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

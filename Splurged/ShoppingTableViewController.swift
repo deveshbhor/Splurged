@@ -39,4 +39,14 @@ class ShoppingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as! clothesMapViewController
+        let index = tableView.indexPathForSelectedRow?.row
+        dvc.clothes = shoppings[index!]
+    }
+    
+    
+    
 }
+

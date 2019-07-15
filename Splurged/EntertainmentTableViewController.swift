@@ -10,7 +10,7 @@ import UIKit
 
 class EntertainmentTableViewController: UITableViewController {
     
-    let entertainments = ["Movies", "Nightlife", "Music & Drama", "Parks & Rec", "Fun & Games", "Sports"]
+    let entertainments = ["Movies", "Nightlife", "Music & Drama", "Parks & Rec", "Fun & Games", "Sport Events"]
     
     
     override func viewDidLoad() {
@@ -39,4 +39,12 @@ class EntertainmentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as! entertainmentMapViewController
+        let index = tableView.indexPathForSelectedRow?.row
+        dvc.fun = entertainments[index!]
+    }
+    
+    
 }
