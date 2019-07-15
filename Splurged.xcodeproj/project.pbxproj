@@ -10,6 +10,9 @@
 		3547354122D913170034DA26 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3547354022D913170034DA26 /* FoodTableViewController.swift */; };
 		35CE7CE822DBD9DB00374C14 /* EntertainmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CE722DBD9DA00374C14 /* EntertainmentTableViewController.swift */; };
 		35CE7CEA22DBDB7200374C14 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CE922DBDB7200374C14 /* ShoppingTableViewController.swift */; };
+		35CE7CEC22DCD1B400374C14 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CEB22DCD1B400374C14 /* FoodDetailsViewController.swift */; };
+		35CE7CEE22DCD25200374C14 /* ClothesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CED22DCD25200374C14 /* ClothesDetailsViewController.swift */; };
+		35CE7CF022DCD26900374C14 /* EntertainmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE7CEF22DCD26800374C14 /* EntertainmentDetailsViewController.swift */; };
 		AEE71A9122DC1A8C0067DB44 /* foodMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE71A9022DC1A8C0067DB44 /* foodMapViewController.swift */; };
 		AEE71A9322DC1AB60067DB44 /* clothesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE71A9222DC1AB60067DB44 /* clothesMapViewController.swift */; };
 		AEE71A9522DC1AF60067DB44 /* entertainmentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE71A9422DC1AF60067DB44 /* entertainmentMapViewController.swift */; };
@@ -24,6 +27,9 @@
 		3547354022D913170034DA26 /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		35CE7CE722DBD9DA00374C14 /* EntertainmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentTableViewController.swift; sourceTree = "<group>"; };
 		35CE7CE922DBDB7200374C14 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
+		35CE7CEB22DCD1B400374C14 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
+		35CE7CED22DCD25200374C14 /* ClothesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesDetailsViewController.swift; sourceTree = "<group>"; };
+		35CE7CEF22DCD26800374C14 /* EntertainmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentDetailsViewController.swift; sourceTree = "<group>"; };
 		AEE71A9022DC1A8C0067DB44 /* foodMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodMapViewController.swift; sourceTree = "<group>"; };
 		AEE71A9222DC1AB60067DB44 /* clothesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothesMapViewController.swift; sourceTree = "<group>"; };
 		AEE71A9422DC1AF60067DB44 /* entertainmentMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entertainmentMapViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 				3547354022D913170034DA26 /* FoodTableViewController.swift */,
 				35CE7CE722DBD9DA00374C14 /* EntertainmentTableViewController.swift */,
 				AEEC469D22D90EC40081B0FF /* Main.storyboard */,
+				35CE7CED22DCD25200374C14 /* ClothesDetailsViewController.swift */,
+				35CE7CEF22DCD26800374C14 /* EntertainmentDetailsViewController.swift */,
+				35CE7CEB22DCD1B400374C14 /* FoodDetailsViewController.swift */,
 				AEE71A9022DC1A8C0067DB44 /* foodMapViewController.swift */,
 				AEE71A9222DC1AB60067DB44 /* clothesMapViewController.swift */,
 				AEE71A9422DC1AF60067DB44 /* entertainmentMapViewController.swift */,
@@ -154,10 +163,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEC469C22D90EC40081B0FF /* ViewController.swift in Sources */,
+				35CE7CF022DCD26900374C14 /* EntertainmentDetailsViewController.swift in Sources */,
 				AEE71A9122DC1A8C0067DB44 /* foodMapViewController.swift in Sources */,
+				35CE7CEE22DCD25200374C14 /* ClothesDetailsViewController.swift in Sources */,
 				AEE71A9522DC1AF60067DB44 /* entertainmentMapViewController.swift in Sources */,
 				3547354122D913170034DA26 /* FoodTableViewController.swift in Sources */,
 				35CE7CE822DBD9DB00374C14 /* EntertainmentTableViewController.swift in Sources */,
+				35CE7CEC22DCD1B400374C14 /* FoodDetailsViewController.swift in Sources */,
 				AEE71A9322DC1AB60067DB44 /* clothesMapViewController.swift in Sources */,
 				35CE7CEA22DBDB7200374C14 /* ShoppingTableViewController.swift in Sources */,
 				AEEC469A22D90EC40081B0FF /* AppDelegate.swift in Sources */,

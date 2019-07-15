@@ -22,18 +22,12 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
         foodMap.showsUserLocation = true
-        
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
-        
         foodMap.delegate = self
-        
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -86,9 +80,7 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        performSegue(withIdentifier: "ShowLocationDetailsSegue", sender: nil)
-        
-        
+        performSegue(withIdentifier: "ShowFoodDetailsSegue", sender: nil)
     }
     
     
@@ -101,7 +93,10 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FoodDetailsViewController {
+            destination.selectedMapItem = selectedMapItem
+        }
+    }
 }
 
