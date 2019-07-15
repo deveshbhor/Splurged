@@ -94,7 +94,7 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        performSegue(withIdentifier: "ShowLocationDetailsSegue", sender: nil)
+        performSegue(withIdentifier: "ShowClothesDetailsSegue", sender: nil)
         
         
     }
@@ -109,7 +109,11 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ClothesDetailsViewController {
+            destination.selectedMapItem = selectedMapItem
+        }
+    }
     
 }
 
