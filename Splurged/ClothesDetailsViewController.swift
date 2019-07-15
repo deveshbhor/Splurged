@@ -15,3 +15,6 @@ class ClothesDetailsViewController: UIViewController {
     }
 
 }
+
+
+//fumd
