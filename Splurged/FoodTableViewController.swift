@@ -10,7 +10,7 @@ import UIKit
 
 class FoodTableViewController: UITableViewController {
     
-    let foods = ["Fast Food", "Sandwiches", "Mexican", "Italian", "Desserts", "Breakfast", "Pizza", "Asian", "Vegan"]
+    let foods = ["Fast Food", "Sandwiches", "Mexican", "Italian", "Desserts", "Breakfast", "Pizza", "Asian", "Vegan", "Portugese", "Indian", "Grocery", "Chicken", "Coffee", "Burgers", "Soup", "Barbeque", "Vegetarian", "Salad", "Wings", "Seafood", "Sushi", "Mediterranean", "Cajun" ]
 
 
     override func viewDidLoad() {

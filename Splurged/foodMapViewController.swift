@@ -33,7 +33,7 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first!
         let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
+        let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
         region = MKCoordinateRegion(center: center, span: span)
         foodMap.setRegion(region, animated: true)
     }
