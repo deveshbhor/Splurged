@@ -117,6 +117,7 @@
                     <connections>
                         <outlet property="foodMap" destination="0Ot-CR-7Bb" id="UCB-gU-rcG"/>
                         <segue destination="7vB-nR-WJN" kind="show" identifier="ShowFoodDetailsSegue" id="RUC-F2-srs"/>
+                        <segue destination="h05-nC-ULx" kind="show" identifier="backToFoodTableSegue" id="6wD-mE-Myy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epg-g4-YGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,4 +461,7 @@
             <point key="canvasLocation" x="-165.21739130434784" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6wD-mE-Myy"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,7 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     var mapItems = [MKMapItem]()
     var selectedMapItem = MKMapItem()
     var food = String()
+    var locations: [CLLocation] = []
     
     
     override func viewDidLoad() {
@@ -60,8 +61,8 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 }
                 
             }
-            
         }
+        insertNewObject((Any).self)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -89,6 +90,30 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             if mapItem.placemark.coordinate.latitude == view.annotation?.coordinate.latitude &&
                 mapItem.placemark.coordinate.longitude == view.annotation?.coordinate.longitude {
                 selectedMapItem = mapItem
+            }
+        }
+    }
+    
+    func insertNewObject(_ sender: Any) {
+        for mapItem in mapItems {
+            print("mapItems")
+            if let location = locations.first {
+                let mapItemLocation = CLLocation(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude)
+                let distance = mapItemLocation.distance(from: location)
+                print(distance)
+                var counter = 0
+                if distance < 0.04 {
+                    counter += 1
+                }
+                if counter == 0 {
+                    let alert = UIAlertController(title: "There is no in your area.", message: nil, preferredStyle: .alert)
+                    print("Nothing")
+                    let insertAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                        self.performSegue(withIdentifier: "backToFoodTableSegue", sender: (Any).self)
+                    }
+                    alert.addAction(insertAction)
+                    present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
