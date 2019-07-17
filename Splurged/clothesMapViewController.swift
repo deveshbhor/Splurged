@@ -22,13 +22,11 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
     @IBOutlet weak var clothesMap: MKMapView!
     var clothes = String()
     
-    
     let locationManager = CLLocationManager()
     var region = MKCoordinateRegion()
     var mapItems = [MKMapItem]()
     var selectedMapItem = MKMapItem()
-    
-    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -39,9 +37,6 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
         locationManager.startUpdatingLocation()
         
         clothesMap.delegate = self
-        
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -72,9 +67,7 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
                     self.clothesMap.addAnnotation(annotation)
                     self.mapItems.append(mapItem)
                 }
-                
             }
-            
         }
     }
     
@@ -95,8 +88,6 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         performSegue(withIdentifier: "ShowClothesDetailsSegue", sender: nil)
-        
-        
     }
     
     
