@@ -42,18 +42,22 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         foodMap.setRegion(region, animated: true)
     }
     
+    var loaded = 0
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        if(loaded > 1) {
+            return
+        }
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = food
         request.region = region
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             if let response = response {
-                for mapItem in response.mapItems {
-                    self.mapItems.append(mapItem)
-//                    print(self.mapItems.count)
-                }
+//                for mapItem in response.mapItems {
+//                    self.mapItems.append(mapItem)
+////                    print(self.mapItems.count)
+//                }
                 for mapItem in response.mapItems {
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = mapItem.placemark.coordinate
@@ -64,8 +68,10 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 }
             }
         }
-        //insertNewObject((Any).self)
+          loaded += 1
+        
         tableView.reloadData()
+     
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

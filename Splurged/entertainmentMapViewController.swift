@@ -53,9 +53,12 @@ class entertainmentMapViewController:UIViewController, CLLocationManagerDelegate
         region = MKCoordinateRegion(center: center, span: span)
         entertainmentMap.setRegion(region, animated: true)
     }
-    
+    var loaded = 0
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        if(loaded > 1) {
+            return
+        }
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = fun
         request.region = region
@@ -79,6 +82,7 @@ class entertainmentMapViewController:UIViewController, CLLocationManagerDelegate
             
         }
         tableView.reloadData()
+        loaded += 1
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

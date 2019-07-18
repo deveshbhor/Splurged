@@ -10,8 +10,9 @@ import UIKit
 
 class FoodTableViewController: UITableViewController {
     
-    let foods = ["Fast Food", "Sandwiches", "Mexican", "Italian", "Desserts", "Breakfast", "Pizza", "Asian", "Vegan", "Portugese", "Indian", "Grocery", "Chicken", "Coffee", "Burgers", "Soup", "Barbeque", "Vegetarian", "Salad", "Wings", "Seafood", "Sushi", "Mediterranean", "Cajun" ]
+    let foods = ["Asian", "Brabeque", "Breakfast", "Burgers", "Cajun", "Chicken", "Coffee", "Desserts", "Fast Food", "Groceries", "Indian", "Italian", "Mexican", "Mediterranean", "Portugese", "Pizza", "Salad", "Sandwiches", "Seafod", "Sushi", "Vegetarian", "Vegan", "Wings", ]
 
+    let sortedFoods = [""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,9 @@ class FoodTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let sortedFoods = foods.sorted()
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let foodType = foods[indexPath.row]
+        let foodType = sortedFoods[indexPath.row]
         cell.textLabel!.text = foodType
         return cell
     }

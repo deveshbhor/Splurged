@@ -8,13 +8,18 @@
 
 import UIKit
 
+
+
 class ShoppingTableViewController: UITableViewController {
     
-    let shoppings = ["Athletic Wear", "Shoes", "Formal", "Casual", "Jewelry", "Hats", "Watches", "Eye Wear"]
+    let shoppings = ["Athletic Wear", "Shoes", "Formal", "Casual", "Jewelry", "Hats", "Watches", "Eye Wear", "Coats and Jackets", "Designer Clothes", "Swim Wear"]
+  
     
+    var sortedShoppings = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,8 +35,9 @@ class ShoppingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let sortedShoppings = shoppings.sorted()
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let shoppingType = shoppings[indexPath.row]
+        let shoppingType = sortedShoppings[indexPath.row]
         cell.textLabel!.text = shoppingType
         return cell
     }

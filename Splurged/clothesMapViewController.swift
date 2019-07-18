@@ -51,18 +51,22 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
         clothesMap.setRegion(region, animated: true)
     }
     
+    var loaded = 0
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        if(loaded > 1) {
+            return
+        }
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = clothes
         request.region = region
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             if let response = response {
-                for mapItem in response.mapItems {
-                    print(mapItem.name!)
-                    self.mapItems.append(mapItem)
-                }
+//                for mapItem in response.mapItems {
+//                    print(mapItem.name!)
+//                    self.mapItems.append(mapItem)
+//                }
                 
                 for mapItem in response.mapItems {
                     let annotation = MKPointAnnotation()
@@ -74,6 +78,7 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
             }
         }
         tableView.reloadData()
+        loaded += 1
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

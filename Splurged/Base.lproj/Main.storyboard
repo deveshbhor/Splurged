@@ -154,13 +154,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuS-WW-PpY">
-                                <rect key="frame" x="118" y="437" width="200" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-YS-hmB">
                                 <rect key="frame" x="289" y="571" width="93" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -194,6 +187,15 @@
                                     <action selector="onDirectionsButtonTapped:" destination="7vB-nR-WJN" eventType="touchUpInside" id="LGh-Mg-nNS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRF-Od-jNO">
+                                <rect key="frame" x="188" y="465" width="50" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Call"/>
+                                <connections>
+                                    <action selector="phoneCallButton:" destination="7vB-nR-WJN" eventType="touchUpInside" id="ady-Gq-7SH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zBg-GS-kDi"/>
@@ -201,7 +203,6 @@
                     <connections>
                         <outlet property="addressLabel" destination="VgZ-6d-xFa" id="DDv-tp-pSJ"/>
                         <outlet property="nameLabel" destination="y2N-Jo-hXr" id="FV2-Xm-mcW"/>
-                        <outlet property="phoneLabel" destination="HuS-WW-PpY" id="3QF-hn-zGG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Jk-1V-gfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,12 +358,15 @@
                                     <action selector="onWebsiteButtonTapped:" destination="kxQ-1v-IEW" eventType="touchUpInside" id="xaQ-W5-vIz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-7c-p9h">
-                                <rect key="frame" x="107" y="434" width="200" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7k-dG-tiy">
+                                <rect key="frame" x="172" y="418" width="71" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Call"/>
+                                <connections>
+                                    <action selector="phoneCallButton:" destination="kxQ-1v-IEW" eventType="touchUpInside" id="1yd-tS-VPS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VJS-vh-pSs"/>
@@ -370,7 +374,6 @@
                     <connections>
                         <outlet property="addressLabel" destination="3QB-N3-Xg7" id="E9t-eO-Npy"/>
                         <outlet property="nameLabel" destination="1DC-Ek-Bzp" id="LFc-zh-oCk"/>
-                        <outlet property="phoneLabel" destination="U0Y-7c-p9h" id="8hn-M2-f1C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fd3-1w-qpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -433,13 +436,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac0-Wo-q0D">
-                                <rect key="frame" x="107" y="399" width="200" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhW-su-Ugm">
                                 <rect key="frame" x="275" y="524" width="108" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -475,6 +471,15 @@
                                     <action selector="onDirectionsButtonTapped:" destination="7vB-nR-WJN" eventType="touchUpInside" id="uj3-bs-9gh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCV-rS-e2P">
+                                <rect key="frame" x="176" y="392" width="63" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Call"/>
+                                <connections>
+                                    <action selector="phoneCallButton:" destination="fnr-Uw-XMO" eventType="touchUpInside" id="h6f-a4-a7P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="q8C-MZ-MlB"/>
@@ -482,7 +487,6 @@
                     <connections>
                         <outlet property="addressLabel" destination="FPG-cc-r61" id="YFP-4A-Nqa"/>
                         <outlet property="nameLabel" destination="X1L-J3-icG" id="Dja-Th-1nA"/>
-                        <outlet property="phoneLabel" destination="Ac0-Wo-q0D" id="6Sx-zc-beu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyZ-Ni-CJn" userLabel="First Responder" sceneMemberID="firstResponder"/>

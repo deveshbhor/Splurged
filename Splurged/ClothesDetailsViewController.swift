@@ -14,7 +14,7 @@ class ClothesDetailsViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+
     
     
     var selectedMapItem = MKMapItem()
@@ -32,7 +32,14 @@ class ClothesDetailsViewController: UIViewController {
         address += selectedMapItem.placemark.administrativeArea! + " "
         address += selectedMapItem.placemark.postalCode!
         addressLabel.text = address
-        phoneLabel.text = selectedMapItem.phoneNumber
+     
+    }
+    
+    
+    @IBAction func phoneCallButton(_ sender: Any) {
+        let url: NSURL = URL(string: "selectedMapItem.phoneNumber")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        
     }
     
     

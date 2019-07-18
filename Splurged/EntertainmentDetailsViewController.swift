@@ -14,7 +14,7 @@ class EntertainmentDetailsViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+ 
     
 
     
@@ -33,9 +33,15 @@ class EntertainmentDetailsViewController: UIViewController {
         address += selectedMapItem.placemark.administrativeArea! + " "
         address += selectedMapItem.placemark.postalCode!
         addressLabel.text = address
-        phoneLabel.text = selectedMapItem.phoneNumber
     }
     
+    @IBAction func phoneCallButton(_ sender: Any) {
+        let url: NSURL = URL(string: "selectedMapItem.phoneNumber")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    
+    }
+    
+   // selectedMapItem.phoneNumber
     @IBAction func onDirectionsButtonTapped(_ sender: Any) {
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
         MKMapItem.openMaps(with: [selectedMapItem], launchOptions: launchOptions)
@@ -47,3 +53,4 @@ class EntertainmentDetailsViewController: UIViewController {
         }
     }
 }
+

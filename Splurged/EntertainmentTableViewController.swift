@@ -12,6 +12,7 @@ class EntertainmentTableViewController: UITableViewController {
     
     let entertainments = ["Movies", "Nightlife", "Music & Drama", "Parks & Rec", "Fun & Games", "Sport Events"]
     
+    var sortedEntertainments = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,9 @@ class EntertainmentTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       sortedEntertainments = entertainments.sorted()
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let entertainmentType = entertainments[indexPath.row]
+        let entertainmentType = sortedEntertainments[indexPath.row]
         cell.textLabel!.text = entertainmentType
         return cell
     }
