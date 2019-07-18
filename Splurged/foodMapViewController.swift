@@ -10,16 +10,17 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var foodMap: MKMapView!
+    @IBOutlet weak var tableView: UITableView!
     
     let locationManager = CLLocationManager()
     var region = MKCoordinateRegion()
-    var mapItems = [MKMapItem]()
     var selectedMapItem = MKMapItem()
     var food = String()
     var locations: [CLLocation] = []
+    var mapItems = [MKMapItem]()
     
     
     override func viewDidLoad() {
@@ -29,6 +30,8 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
         foodMap.delegate = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -48,21 +51,21 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         search.start { (response, error) in
             if let response = response {
                 for mapItem in response.mapItems {
-                    print(mapItem.name!)
                     self.mapItems.append(mapItem)
+//                    print(self.mapItems.count)
                 }
-                
                 for mapItem in response.mapItems {
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = mapItem.placemark.coordinate
                     annotation.title = mapItem.name
                     self.foodMap.addAnnotation(annotation)
                     self.mapItems.append(mapItem)
+                    print(String(self.mapItems.count) + "test")
                 }
-                
             }
         }
-        insertNewObject((Any).self)
+        //insertNewObject((Any).self)
+        tableView.reloadData()
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -94,29 +97,67 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
-    func insertNewObject(_ sender: Any) {
-        for mapItem in mapItems {
-            print("mapItems")
-            if let location = locations.first {
-                let mapItemLocation = CLLocation(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude)
-                let distance = mapItemLocation.distance(from: location)
-                print(distance)
-                var counter = 0
-                if distance < 0.04 {
-                    counter += 1
-                }
-                if counter == 0 {
-                    let alert = UIAlertController(title: "There is no in your area.", message: nil, preferredStyle: .alert)
-                    print("Nothing")
-                    let insertAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                        self.performSegue(withIdentifier: "backToFoodTableSegue", sender: (Any).self)
-                    }
-                    alert.addAction(insertAction)
-                    present(alert, animated: true, completion: nil)
-                }
-            }
-        }
+    //    func insertNewObject(_ sender: Any) {
+    //        for mapItem in mapItems {
+    //            print("mapItems")
+    //            if let location = locations.first {
+    //                let mapItemLocation = CLLocation(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude)
+    //                let distance = mapItemLocation.distance(from: location)
+    //                print(distance)
+    //                var counter = 0
+    //                if distance < 0.04 {
+    //                    counter += 1
+    //                }
+    //                if counter == 0 {
+    //                    let alert = UIAlertController(title: "There is no in your area.", message: nil, preferredStyle: .alert)
+    //                    print("Nothing")
+    //                    let insertAction = UIAlertAction(title: "OK", style: .default) { (action) in
+    //                        self.performSegue(withIdentifier: "backToFoodTableSegue", sender: (Any).self)
+    //                    }
+    //                    alert.addAction(insertAction)
+    //                    present(alert, animated: true, completion: nil)
+    //                }
+    //            }
+    //        }
+    //    }
+    
+    //
+    //    //var mapItems = [MKMapItem]()
+    //    override init(frame: CGRect, style: UITableView.Style) {
+    //        print("huh")
+    //    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+//        print(mapItems.count)
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            print(self.mapItems.count)
+        }
+        return mapItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(mapItems.count)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
+        let mapItem = mapItems[indexPath.row]
+//        print(mapItem)
+        cell.textLabel!.text = mapItem.name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        print(mapItems.count)
+        return false
+    }
+    
+    //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //            let dvc = segue.destination as! foodMapViewController
+    //            let index = tableView.indexPathForSelectedRow?.row
+    //            dvc.food = foods[index!]
+    //        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? FoodDetailsViewController {
