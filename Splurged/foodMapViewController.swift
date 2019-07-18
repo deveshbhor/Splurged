@@ -68,10 +68,8 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 }
             }
         }
-          loaded += 1
-        
+        loaded += 1
         tableView.reloadData()
-     
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
