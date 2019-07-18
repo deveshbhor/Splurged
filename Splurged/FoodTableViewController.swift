@@ -10,9 +10,11 @@ import UIKit
 
 class FoodTableViewController: UITableViewController {
     
-    let foods = ["Asian", "Brabeque", "Breakfast", "Burgers", "Cajun", "Chicken", "Coffee", "Desserts", "Fast Food", "Groceries", "Indian", "Italian", "Mexican", "Mediterranean", "Portugese", "Pizza", "Salad", "Sandwiches", "Seafod", "Sushi", "Vegetarian", "Vegan", "Wings", ]
+    var sortedFoods = [""]
+    
+    var foods = ["Asian", "Barbeque", "Breakfast", "Burgers", "Cajun", "Chicken", "Coffee", "Desserts", "Fast Food", "Groceries", "Indian", "Italian", "Mexican", "Mediterranean", "Portugese", "Pizza", "Salad", "Sandwiches", "Seafod", "Sushi", "Vegetarian", "Vegan", "Wings"]
 
-    let sortedFoods = [""]
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,8 @@ class FoodTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foods.count
+        sortedFoods = foods.sorted()
+        return sortedFoods.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,6 +48,6 @@ class FoodTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dvc = segue.destination as! foodMapViewController
         let index = tableView.indexPathForSelectedRow?.row
-        dvc.food = foods[index!]
+        dvc.food = sortedFoods[index!]
     }
 }

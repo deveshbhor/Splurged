@@ -18,9 +18,11 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     let locationManager = CLLocationManager()
     var region = MKCoordinateRegion()
     var selectedMapItem = MKMapItem()
-    var food = String()
+    
     var locations: [CLLocation] = []
     var mapItems = [MKMapItem]()
+   var food = String()
+  
     
     
     override func viewDidLoad() {
