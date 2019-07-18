@@ -17,9 +17,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var clothesMap: MKMapView!
+    @IBOutlet weak var tableView: UITableView!
+    
     var clothes = String()
     
     let locationManager = CLLocationManager()
@@ -37,6 +39,8 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
         locationManager.startUpdatingLocation()
         
         clothesMap.delegate = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -69,6 +73,7 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
                 }
             }
         }
+        tableView.reloadData()
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -105,6 +110,34 @@ class clothesMapViewController: UIViewController, CLLocationManagerDelegate, MKM
             destination.selectedMapItem = selectedMapItem
         }
     }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //        print(mapItems.count)
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            print(self.mapItems.count)
+        }
+        return mapItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(mapItems.count)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
+        let mapItem = mapItems[indexPath.row]
+        //        print(mapItem)
+        cell.textLabel!.text = mapItem.name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        //        print(mapItems.count)
+        return false
+    }
+    
     
 }
 

@@ -17,17 +17,19 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class entertainmentMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class entertainmentMapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var entertainmentMap: MKMapView!
+    @IBOutlet weak var tableView: UITableView!
+    
     var fun = String()
     
     
-   let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     var region = MKCoordinateRegion()
     var mapItems = [MKMapItem]()
     var selectedMapItem = MKMapItem()
-
+    
     
     override func viewDidLoad() {
         
@@ -39,8 +41,8 @@ class entertainmentMapViewController: UIViewController, CLLocationManagerDelegat
         locationManager.startUpdatingLocation()
         
         entertainmentMap.delegate = self
-        
-        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
     }
     
@@ -60,10 +62,10 @@ class entertainmentMapViewController: UIViewController, CLLocationManagerDelegat
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             if let response = response {
-                for mapItem in response.mapItems {
-                    print(mapItem.name!)
-                    self.mapItems.append(mapItem)
-                }
+//                for mapItem in response.mapItems {
+//                    print(mapItem.name!)
+//                    self.mapItems.append(mapItem)
+//                }
                 
                 for mapItem in response.mapItems {
                     let annotation = MKPointAnnotation()
@@ -76,6 +78,7 @@ class entertainmentMapViewController: UIViewController, CLLocationManagerDelegat
             }
             
         }
+        tableView.reloadData()
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -113,6 +116,33 @@ class entertainmentMapViewController: UIViewController, CLLocationManagerDelegat
         if let destination = segue.destination as? EntertainmentDetailsViewController {
             destination.selectedMapItem = selectedMapItem
         }
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //        print(mapItems.count)
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            print(self.mapItems.count)
+        }
+        return mapItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(mapItems.count)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
+        let mapItem = mapItems[indexPath.row]
+        //        print(mapItem)
+        cell.textLabel!.text = mapItem.name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        //        print(mapItems.count)
+        return false
     }
     
     
