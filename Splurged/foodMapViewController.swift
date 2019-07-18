@@ -21,7 +21,7 @@ class foodMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     var locations: [CLLocation] = []
     var mapItems = [MKMapItem]()
-   var food = String()
+    var food = String()
   
     
     

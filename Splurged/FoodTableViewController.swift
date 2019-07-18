@@ -34,7 +34,7 @@ class FoodTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let sortedFoods = foods.sorted()
+        sortedFoods = foods.sorted()
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let foodType = sortedFoods[indexPath.row]
         cell.textLabel!.text = foodType

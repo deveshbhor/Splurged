@@ -12,10 +12,9 @@ import UIKit
 
 class ShoppingTableViewController: UITableViewController {
     
-    let shoppings = ["Athletic Wear", "Shoes", "Formal", "Casual", "Jewelry", "Hats", "Watches", "Eye Wear", "Coats and Jackets", "Designer Clothes", "Swim Wear"]
-  
+    var sortedClothes = [""]
     
-    var sortedShoppings = [""]
+    let shoppings = ["Athletic Wear", "Shoes", "Formal", "Casual", "Jewelry", "Hats", "Watches", "Eye Wear", "Coats and Jackets", "Designer Clothes", "Swim Wear"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +30,15 @@ class ShoppingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shoppings.count
+        sortedClothes = shoppings.sorted()
+        return sortedClothes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let sortedShoppings = shoppings.sorted()
+        sortedClothes = shoppings.sorted()
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let shoppingType = sortedShoppings[indexPath.row]
-        cell.textLabel!.text = shoppingType
+        let clothesType = sortedClothes[indexPath.row]
+        cell.textLabel!.text = clothesType
         return cell
     }
     
@@ -49,7 +49,7 @@ class ShoppingTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dvc = segue.destination as! clothesMapViewController
         let index = tableView.indexPathForSelectedRow?.row
-        dvc.clothes = shoppings[index!]
+        dvc.clothes = sortedClothes[index!]
     }
     
     

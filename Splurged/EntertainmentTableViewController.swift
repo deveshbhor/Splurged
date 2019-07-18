@@ -27,11 +27,12 @@ class EntertainmentTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entertainments.count
+        sortedEntertainments = entertainments.sorted()
+        return sortedEntertainments.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       sortedEntertainments = entertainments.sorted()
+        sortedEntertainments = entertainments.sorted()
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let entertainmentType = sortedEntertainments[indexPath.row]
         cell.textLabel!.text = entertainmentType
@@ -45,7 +46,7 @@ class EntertainmentTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dvc = segue.destination as! entertainmentMapViewController
         let index = tableView.indexPathForSelectedRow?.row
-        dvc.fun = entertainments[index!]
+        dvc.fun = sortedEntertainments[index!]
     }
     
     
